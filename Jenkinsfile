@@ -51,7 +51,7 @@ pipeline {
                       if (!new File(buildFilesDir).exists()) {
                         bat "mkdir \"${buildFilesDir}\""
                     }
-                    
+
                     //  bat "rmdir /S /Q ${buildFilesDir}"
                     // bat "mkdir \"${buildFilesDir}\""
                     // // Move .dll files to build-files directory
@@ -73,8 +73,6 @@ pipeline {
         }
     }
 }
-
-
 
 
 // node {
