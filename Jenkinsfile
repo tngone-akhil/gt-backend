@@ -13,7 +13,7 @@ pipeline {
                     }
                     // Clone the repository and fetch only the specific file
                     bat "git clone ${gitUrl} ${targetDir}"
-                    bat "move /Y external-files ..\\"
+                    bat "xcopy /Y ${targetDir} ..\\"
 
 
                 }
