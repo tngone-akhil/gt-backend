@@ -1,0 +1,125 @@
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.csproj.AssemblyReference.cache
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.AssemblyInfoInputs.cache
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.AssemblyInfo.cs
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.csproj.CoreCompileInputs.cache
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\appsettings.json
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\authService.exe
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\authService.deps.json
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\authService.runtimeconfig.json
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\authService.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\authService.pdb
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\staticwebassets\msbuild.authService.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\staticwebassets\msbuild.build.authService.props
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.authService.props
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.authService.props
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\scopedcss\bundle\authService.styles.css
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authServ.34189766.Up2Date
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\refint\authService.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.pdb
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\authService.genruntimeconfig.cache
+C:\Users\SapthamyPO\Training\Facility Management\authService\obj\Debug\net8.0\ref\authService.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\AWSSDK.S3.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\DnsClient.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\MailKit.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\MimeKit.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\MongoDB.Driver.Legacy.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\RestSharp.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Snappier.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\Twilio.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\facility-shared-lib.dll
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\facility-shared-lib.pdb
+C:\Users\SapthamyPO\Training\Facility Management\authService\bin\Debug\net8.0\AWSSDK.SQS.dll
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.csproj.AssemblyReference.cache
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.AssemblyInfoInputs.cache
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.AssemblyInfo.cs
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.csproj.CoreCompileInputs.cache
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.sourcelink.json
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.dll
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\refint\authService.dll
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.pdb
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\appsettings.Development.json
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\appsettings.json
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\authService.exe
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\authService.deps.json
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\authService.runtimeconfig.json
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\authService.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\authService.pdb
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\AWSSDK.S3.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\AWSSDK.SQS.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\DnsClient.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\MailKit.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\MimeKit.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\MongoDB.Driver.Legacy.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\RestSharp.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\SharpCompress.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Snappier.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\Twilio.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\ZstdSharp.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\facility-shared-lib.dll
+C:\Projects\FacilityManagement\facility-auth\bin\Debug\net8.0\facility-shared-lib.pdb
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\staticwebassets.build.json
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\staticwebassets.development.json
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\staticwebassets\msbuild.authService.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\staticwebassets\msbuild.build.authService.props
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.authService.props
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.authService.props
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\scopedcss\bundle\authService.styles.css
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authServ.34189766.Up2Date
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\authService.genruntimeconfig.cache
+C:\Projects\FacilityManagement\facility-auth\obj\Debug\net8.0\ref\authService.dll
