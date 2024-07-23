@@ -11,8 +11,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\facility-shared\facility-shared-lib.csproj" />
-
+    <ProjectReference Include="https://raw.githubusercontent.com/tngone-akhil/gt-shared/shared/facility-shared-lib.csproj" />
   </ItemGroup>
 
 </Project>
