@@ -11,7 +11,7 @@ pipeline {
 
         stage('Download Shared Project File') {
             steps {
-        bat 'curl -o facility-shared-lib.csproj https://raw.githubusercontent.com/tngone-akhil/gt-shared/main/shared/facility-shared-lib.csproj'
+        bat 'curl -o facility-shared-lib.csproj https://github.com/tngone-akhil/gt-backend.git'
     }
         }
  
