@@ -10,11 +10,9 @@ pipeline {
                     def parentDir = new File(workspacePath).parent
                    def targetDir = "${parentDir}\\external"
                      
-                       if (!new File(targetDir).exists()) {
+                     bat "rmdir /S /Q ${targetDir}"
                        bat "mkdir \"${targetDir}\""
-                    }else{
-                        bat "del /Q /S ${targetDir}\\*"
-                    }
+                  
                     // Clone the repository and fetch only the specific file
 
                     bat "git clone ${gitUrl} ${targetDir}"
