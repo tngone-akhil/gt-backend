@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using ILogger = TNG.Shared.Lib.Intefaces.ILogger;
 using TNG.Shared.Lib.Communications.Email;
 namespace TNG.Shared.Lib.Mongo.Master;
-[Route("api/akhil/[controller]/[action]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class CommunicationController : ControllerBase
 {
