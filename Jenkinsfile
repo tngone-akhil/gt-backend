@@ -55,7 +55,7 @@ pipeline {
                     //  bat "rmdir /S /Q ${buildFilesDir}"
                     // bat "mkdir \"${buildFilesDir}\""
                     // // Move .dll files to build-files directory
-                     bat "xcopy /Y /C \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
+                     bat "xcopy /Y /c \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
                     
 
                     // // Display paths of saved files
