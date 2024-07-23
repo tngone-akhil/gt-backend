@@ -50,7 +50,7 @@ public class AuthController : ControllerBase
 
   #region  Public Methods
   [HttpPost]
-  public ActionResult<UserValidationResult> AuthenticateUser(UserValidateRequest userToValidate)
+  public ActionResult<UserValidationResult> AuthenticateUsers(UserValidateRequest userToValidate)
   {
     var result = new UserValidationResult();
     var ex = new Exception();
@@ -133,7 +133,7 @@ public class AuthController : ControllerBase
   /// <returns></returns>
 
   [HttpPost]
-  public ActionResult<AuthTokenRefreshModel> RefreshToken(UserTokenRefreshInputModel refreshData)
+  public ActionResult<AuthTokenRefreshModel> RefreshTokens(UserTokenRefreshInputModel refreshData)
   {
 
     //add final refresh token
