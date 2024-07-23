@@ -2,6 +2,26 @@ pipeline {
     agent any
 
     stages {
+        stage('Clone File') {
+            steps {
+                script {
+                    def gitUrl = 'https://github.com/tngone-akhil/gt-shared.git'
+                    def filePath = 'shared/facility-shared-lib.csproj'
+                    def targetDir = "${env.WORKSPACE}/external-files"
+
+                    // Clone the repository and fetch only the specific file
+                    checkout([$class: 'GitSCM', 
+                              branches: [[name: '*/shared']], 
+                              extensions: [[$class: 'PathRestriction', excludedRegions: '']],
+                              userRemoteConfigs: [[url: gitUrl]]])
+
+                    // Move the file to the desired location in your workspace
+                    bat "mkdir \"${targetDir}\""
+                    bat "move \"${filePath}\" \"${targetDir}\""
+                }
+            }
+        }
+
         stage('Checkout') {
             steps {
                 // Checkout your Git repository
@@ -9,24 +29,8 @@ pipeline {
             }
         }
 
-        stage('Download Shared Project File') {
-            steps {
-        bat 'curl -o facility-shared-lib.csproj https://github.com/tngone-akhil/gt-backend.git'
-    }
-        }
- 
-        // stage('Restore Dependencies') {
-        //     steps {
-        //         // Restore NuGet packages (example for .NET projects)
-        //         script {
-        //             bat 'dotnet restore'
-        //         }
-        //     }
-        // }
         stage('Build') {
-           
             steps {
-                
                 // Build the .NET project
                 bat 'dotnet publish -c release'
                 
@@ -36,25 +40,17 @@ pipeline {
         }
     }
 
-
     post {
         always {
             // Save build files to a directory and display paths
             script {
                 try {
                     def workspacePath = env.WORKSPACE
-                    def buildFilesDir = "${workspacePath}\\build-files" // Use double backslashes for Windows paths
-                
-                    // Create directory if it doesn't exist
-                    if (!new File(buildFilesDir).exists()) {
-                        bat "mkdir \"${buildFilesDir}\""
-                    }
+                    def buildFilesDir = "${workspacePath}\\build-files"
 
                     // Move .dll files to build-files directory
-                  bat "move /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\""
-                  bat "xcopy /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
-
-
+                    bat "move /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\""
+                     bat "xcopy /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
                     
                     // Display paths of saved files
                     echo "Build files saved in directory: ${buildFilesDir}"
@@ -71,6 +67,43 @@ pipeline {
     }
 }
 
+
+
+
+// node {
+//     // Define SonarScanner tool installation
+
+//     def scannerHome = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    
+//     try {
+//         // Stage: Checkout
+//         stage('Checkout') {
+//             // Checkout your Git repository
+//             checkout scm
+//             echo "${scannerHome}"
+//             echo "hii"
+//         }
+
+//         // Stage: Build
+//         stage('Build') {
+//             // Build the .NET project
+//             bat 'dotnet build bugtrackerapi.sln /p:Configuration=Release'
+//               archiveArtifacts artifacts: '**/bin/**/*.dll', allowEmptyArchive: true
+//         }
+
+
+//         Stage: Run SonarScanner
+//         stage('Run SonarScanner') {
+//             // Execute SonarScanner
+//             withSonarQubeEnv('SonarScanner') {
+//                 bat "${scannerHome}/bin/sonar-scanner"
+//             }
+//         }
+//     } finally {
+//         // Clean up workspace
+//         deleteDir()
+//     }
+// }
 
 
 
