@@ -33,7 +33,7 @@ pipeline {
             steps {
                 // Build the .NET project
                 bat 'dotnet publish -c release'
-                   def targetDir = "${env.WORKSPACE}\\build-artifacts"
+             
                 
                 // Archive build artifacts
                 archiveArtifacts artifacts: '**/bin/**/*.dll', allowEmptyArchive: true
