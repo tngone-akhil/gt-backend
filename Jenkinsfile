@@ -11,7 +11,7 @@ pipeline {
                    def targetDir = "${parentDir}\\external"
                      
                      bat "rmdir /S /Q ${targetDir}"
-                       bat "mkdir \"${targetDir}\""
+                    bat "mkdir \"${targetDir}\""
                   
                     // Clone the repository and fetch only the specific file
 

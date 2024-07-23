@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\github clone\\gt-backend\\gt-backend\\authService.csproj": {}
+    "C:\\Projects\\FacilityManagement\\facility-auth\\authService.csproj": {}
   },
   "projects": {
-    "C:\\github clone\\gt-backend\\gt-backend\\authService.csproj": {
+    "C:\\Projects\\FacilityManagement\\facility-auth\\authService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github clone\\gt-backend\\gt-backend\\authService.csproj",
+        "projectUniqueName": "C:\\Projects\\FacilityManagement\\facility-auth\\authService.csproj",
         "projectName": "authService",
-        "projectPath": "C:\\github clone\\gt-backend\\gt-backend\\authService.csproj",
-        "packagesPath": "C:\\Users\\AkhilBiju\\.nuget\\packages\\",
-        "outputPath": "C:\\github clone\\gt-backend\\gt-backend\\obj\\",
+        "projectPath": "C:\\Projects\\FacilityManagement\\facility-auth\\authService.csproj",
+        "packagesPath": "C:\\Users\\SapthamyPO\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\FacilityManagement\\facility-auth\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AkhilBiju\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\SapthamyPO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -25,7 +25,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Projects\\FacilityManagement\\facility-shared\\facility-shared-lib.csproj": {
+                "projectPath": "C:\\Projects\\FacilityManagement\\facility-shared\\facility-shared-lib.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -67,6 +71,102 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\FacilityManagement\\facility-shared\\facility-shared-lib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\FacilityManagement\\facility-shared\\facility-shared-lib.csproj",
+        "projectName": "facility-shared-lib",
+        "projectPath": "C:\\Projects\\FacilityManagement\\facility-shared\\facility-shared-lib.csproj",
+        "packagesPath": "C:\\Users\\SapthamyPO\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\FacilityManagement\\facility-shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\SapthamyPO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.0.15, )"
+            },
+            "AWSSDK.SQS": {
+              "target": "Package",
+              "version": "[3.7.300.79, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
+            "MongoDB.Driver.Core": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[110.2.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Twilio": {
+              "target": "Package",
+              "version": "[6.15.2, )"
+            },
+            "mongocsharpdriver": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
