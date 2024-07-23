@@ -34,12 +34,6 @@ pipeline {
                 // Build the .NET project
                 bat 'dotnet publish -c release'
                    def targetDir = "${env.WORKSPACE}\\build-artifacts"
-
-                // Create the target directory if it doesn't exist
-                bat "mkdir \"${targetDir}\""
-
-                // Move .dll files to the target directory
-                bat "move /Y \"${env.WORKSPACE}\\**\\bin\\**\\*.dll\" \"${targetDir}\""
                 
                 // Archive build artifacts
                 archiveArtifacts artifacts: '**/bin/**/*.dll', allowEmptyArchive: true
@@ -54,21 +48,21 @@ pipeline {
                 try {
                     def workspacePath = env.WORKSPACE
                     def buildFilesDir = "${workspacePath}\\build-files"
-                    //   if (!new File(buildFilesDir).exists()) {
-                    //     bat "mkdir \"${buildFilesDir}\""
-                    // }
+                      if (!new File(buildFilesDir).exists()) {
+                        bat "mkdir \"${buildFilesDir}\""
+                    }
                     //  bat "rmdir /S /Q ${buildFilesDir}"
                     // bat "mkdir \"${buildFilesDir}\""
 
                     // // Move .dll files to build-files directory
-                    // bat "move /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\""
-                    //  bat "xcopy /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
+                    bat "move /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\""
+                     bat "xcopy /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
 
                     
                     // // Display paths of saved files
-                    // echo "Build files saved in directory: ${buildFilesDir}"
-                    // echo "Files saved:"
-                    // bat "dir \"${buildFilesDir}\""
+                    echo "Build files saved in directory: ${buildFilesDir}"
+                    echo "Files saved:"
+                    bat "dir \"${buildFilesDir}\""
                 } catch (Exception e) {
                     // Catch any exception and print error message
                     echo "Error in post-build actions: ${e.message}"
