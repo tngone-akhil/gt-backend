@@ -55,7 +55,6 @@ pipeline {
                     // bat "mkdir \"${buildFilesDir}\""
 
                     // // Move .dll files to build-files directory
-                    bat "move /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\""
                      bat "xcopy /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
 
                     
