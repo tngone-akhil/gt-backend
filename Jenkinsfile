@@ -7,7 +7,7 @@ pipeline {
                 script {
                     def gitUrl = 'https://github.com/tngone-akhil/gt-shared.git'
                     def filePath = 'shared/facility-shared-lib.csproj'
-                    def targetDir = "${env.WORKSPACE}/external-files"
+                    def targetDir = "${env.WORKSPACE}\\external-files"
 
                     // Clone the repository and fetch only the specific file
                     checkout([$class: 'GitSCM', 
