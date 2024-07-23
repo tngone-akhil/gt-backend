@@ -9,7 +9,7 @@ using MongoDB.Driver;
 using Newtonsoft.Json;
 using ILogger = TNG.Shared.Lib.Intefaces.ILogger;
 namespace TNG.Shared.Lib.Mongo.Master;
-[Route("api/[controller]/[action]")]
+[Route("api/akhil/[controller]/[action]")]
 [ApiController]
 public class AuthController : ControllerBase
 {
