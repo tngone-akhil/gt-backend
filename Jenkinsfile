@@ -16,7 +16,10 @@ pipeline {
                               userRemoteConfigs: [[url: gitUrl]]])
 
                     // Move the file to the desired location in your workspace
-                    bat "mkdir \"${targetDir}\""
+                      if (!new File(targetDir).exists()) {
+                         bat "mkdir \"${targetDir}\""
+                    }
+                   
                     bat "move \"${filePath}\" \"${targetDir}\""
                 }
             }
@@ -47,6 +50,9 @@ pipeline {
                 try {
                     def workspacePath = env.WORKSPACE
                     def buildFilesDir = "${workspacePath}\\build-files"
+                      if (!new File(buildFilesDir).exists()) {
+                        bat "mkdir \"${buildFilesDir}\""
+                    }
 
                     // Move .dll files to build-files directory
                     bat "move /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\""
