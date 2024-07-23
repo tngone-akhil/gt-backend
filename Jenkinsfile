@@ -6,21 +6,18 @@ pipeline {
             steps {
                 script {
                     def gitUrl = 'https://github.com/tngone-akhil/gt-shared.git'
-                    def filePath = 'shared/facility-shared-lib.csproj'
-                    def targetDir = "${env.WORKSPACE}\\external-files"
-
-                    // Clone the repository and fetch only the specific file
-                    checkout([$class: 'GitSCM', 
-                              branches: [[name: '*/shared']], 
-                              extensions: [[$class: 'PathRestriction', excludedRegions: '']],
-                              userRemoteConfigs: [[url: gitUrl]]])
-
-                    // Move the file to the desired location in your workspace
-                      if (!new File(targetDir).exists()) {
+                    def targetDir = "\${env.WORKSPACE}\\external-files"
+                        if (!new File(targetDir).exists()) {
                          bat "mkdir \"${targetDir}\""
                     }
-                   
-                    bat "move \"${filePath}\" \"${targetDir}\""
+                    // Clone the repository and fetch only the specific file
+                      checkout([$class: 'GitSCM',
+                              branches: [[name: '*/shared']], // Replace with the branch you want to clone
+                              doGenerateSubmoduleConfigurations: false,
+                              extensions: [[$class: 'CleanCheckout']],
+                              userRemoteConfigs: [[url: gitUrl]]
+                    ])
+
                 }
             }
         }
