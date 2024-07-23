@@ -11,12 +11,7 @@ pipeline {
                          bat "mkdir \"${targetDir}\""
                     }
                     // Clone the repository and fetch only the specific file
-                      checkout([$class: 'GitSCM',
-                              branches: [[name: '*/shared']], // Replace with the branch you want to clone
-                              doGenerateSubmoduleConfigurations: false,
-                              extensions: [[$class: 'CleanCheckout']],
-                              userRemoteConfigs: [[url: gitUrl]]
-                    ])
+                    bat "git clone ${gitUrl} ${targetDir}"
 
                 }
             }
