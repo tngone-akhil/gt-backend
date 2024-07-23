@@ -11,9 +11,10 @@ pipeline {
 
         stage('Download Shared Project File') {
             steps {
-                // Download facility-shared-lib.csproj from gt-shared repository
-                bat 'wget -O facility-shared-lib.csproj https://github.com/tngone-akhil/gt-shared.git'
-            }
+        powershell """
+        Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/tngone-akhil/gt-shared/main/shared/facility-shared-lib.csproj' -OutFile 'facility-shared-lib.csproj'
+        """
+    }
         }
  
         stage('Restore Dependencies') {
