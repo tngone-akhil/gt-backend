@@ -8,6 +8,22 @@ pipeline {
                 checkout scm
             }
         }
+
+        stage('Download Shared Project File') {
+            steps {
+                // Download facility-shared-lib.csproj from gt-shared repository
+                sh 'wget -O facility-shared-lib.csproj https://github.com/tngone-akhil/gt-shared.git'
+            }
+        }
+ 
+        stage('Restore Dependencies') {
+            steps {
+                // Restore NuGet packages (example for .NET projects)
+                script {
+                    sh 'dotnet restore'
+                }
+            }
+        }
         stage('Build') {
            
             steps {
