@@ -10,7 +10,7 @@ pipeline {
         }
 
         stage('Build') {
-            steps {
+            script{
                 def workspace = env.WORKSPACE
                 def shared = "${workspacePath}\\shared" 
                 if (!new File(shared).exists()) {
@@ -19,6 +19,9 @@ pipeline {
                 bat 'cd shared'
                 bat 'rm -rf target_folder/*'
                 bat  'git clone https://github.com/tngone-akhil/gt-shared.git'
+            }
+            steps {
+                
                 // Build the .NET project
                 bat 'dotnet publish -c release'
                 
