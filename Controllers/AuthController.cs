@@ -50,7 +50,7 @@ public class AuthController : ControllerBase
 
   #region  Public Methods
   [HttpPost]
-  public ActionResult<UserValidationResult> AuthenticateUser(UserValidateRequest userToValidate)
+  public ActionResult<UserValidationResult> AuthenticateUsers(UserValidateRequest userToValidate)
   {
     var result = new UserValidationResult();
 
