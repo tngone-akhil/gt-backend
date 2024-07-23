@@ -58,7 +58,6 @@ pipeline {
                      bat "xcopy /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
                      bat "del /Q /S  \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\""
 
-
                     // // Display paths of saved files
                     echo "Build files saved in directory: ${buildFilesDir}"
                     echo "Files saved:"
