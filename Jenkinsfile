@@ -17,7 +17,6 @@ pipeline {
                     bat "git clone ${gitUrl} ${targetDir}"
                     bat "xcopy /Y ${targetDir} ..\\external-files"
 
-
                 }
             }
         }
