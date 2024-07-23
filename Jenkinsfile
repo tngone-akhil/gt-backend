@@ -47,7 +47,8 @@ pipeline {
             script {
                 try {
                     def workspacePath = env.WORKSPACE
-                    def buildFilesDir = "${workspacePath}\\build-files"
+                    def workspacePathExcept =  new File(workspacePath).parent
+                    def buildFilesDir = "${workspacePathExcept}\\build-files\\1"
                       if (!new File(buildFilesDir).exists()) {
                         bat "mkdir \"${buildFilesDir}\""
                     }
@@ -56,7 +57,7 @@ pipeline {
                     // bat "mkdir \"${buildFilesDir}\""
                     // // Move .dll files to build-files directory
                      bat "xcopy /Y \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
-                     bat "del /Q /S  \"${workspacePath}\\bin\\Release\\net8.0\\*\""
+                    
 
                     // // Display paths of saved files
                     echo "Build files saved in directory: ${buildFilesDir}"
