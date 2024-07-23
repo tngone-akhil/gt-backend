@@ -15,14 +15,14 @@ pipeline {
     }
         }
  
-        stage('Restore Dependencies') {
-            steps {
-                // Restore NuGet packages (example for .NET projects)
-                script {
-                    bat 'dotnet restore'
-                }
-            }
-        }
+        // stage('Restore Dependencies') {
+        //     steps {
+        //         // Restore NuGet packages (example for .NET projects)
+        //         script {
+        //             bat 'dotnet restore'
+        //         }
+        //     }
+        // }
         stage('Build') {
            
             steps {
