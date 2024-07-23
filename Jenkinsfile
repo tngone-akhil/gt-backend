@@ -6,12 +6,14 @@ pipeline {
             steps {
                 script {
                     def gitUrl = 'https://github.com/tngone-akhil/gt-shared.git'
-                    def targetDir = "\${env.WORKSPACE}\\external-files"
+                     def targetDir = "${env.WORKSPACE}\\external-files"
+
                         if (!new File(targetDir).exists()) {
                          bat "mkdir \"${targetDir}\""
                     }
                     // Clone the repository and fetch only the specific file
                     bat "git clone ${gitUrl} ${targetDir}"
+                    bat "move external-files ..\\"
 
                 }
             }
