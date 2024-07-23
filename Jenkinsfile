@@ -11,9 +11,7 @@ pipeline {
 
         stage('Download Shared Project File') {
             steps {
-        powershell """
-        Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/tngone-akhil/gt-shared/main/shared/facility-shared-lib.csproj' -OutFile 'facility-shared-lib.csproj'
-        """
+        bat 'curl -o facility-shared-lib.csproj https://raw.githubusercontent.com/tngone-akhil/gt-shared/main/shared/facility-shared-lib.csproj'
     }
         }
  
