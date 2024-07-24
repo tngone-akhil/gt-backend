@@ -9,7 +9,7 @@ using MongoDB.Driver;
 using Newtonsoft.Json;
 using ILogger = TNG.Shared.Lib.Intefaces.ILogger;
 namespace TNG.Shared.Lib.Mongo.Master;
-[Route("api/akhil/[controller]/[action]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class AuthController : ControllerBase
 {
@@ -50,9 +50,10 @@ public class AuthController : ControllerBase
 
   #region  Public Methods
   [HttpPost]
-  public ActionResult<UserValidationResult> AuthenticateUsers(UserValidateRequest userToValidate)
+  public ActionResult<UserValidationResult> AuthenticateUser(UserValidateRequest userToValidate)
   {
     var result = new UserValidationResult();
+
     var ex = new Exception();
     try
     {
@@ -133,7 +134,7 @@ public class AuthController : ControllerBase
   /// <returns></returns>
 
   [HttpPost]
-  public ActionResult<AuthTokenRefreshModel> RefreshTokens(UserTokenRefreshInputModel refreshData)
+  public ActionResult<AuthTokenRefreshModel> RefreshToken(UserTokenRefreshInputModel refreshData)
   {
 
     //add final refresh token
