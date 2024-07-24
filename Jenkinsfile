@@ -16,7 +16,7 @@ pipeline {
                   
                     // Clone the repository and fetch only the specific file
 
-                    bat "git clone ${gitUrl} --branch shared --single-branch ${targetDir}"
+                    bat "git clone --single-branch --branch shared ${gitUrl} ${targetDir}"
                  
                 }
             }
