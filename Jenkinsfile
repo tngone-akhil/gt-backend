@@ -65,7 +65,7 @@ pipeline {
                     echo "Files saved:"
                     bat "dir \"${buildFilesDir}\""
 
-                    def websiteName = "gt-auth" // Replace with your actual IIS website name
+                   
                     bat "cmd /c appcmd start site /site.name:\"${websiteName}\""
                 } catch (Exception e) {
                     // Catch any exception and print error message
