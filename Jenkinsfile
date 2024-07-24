@@ -47,7 +47,7 @@ pipeline {
             script {
                 try {
                    
-                    bat "iisreset /stop"
+                    // bat "iisreset /stop"
 
                     def workspacePath = env.WORKSPACE
                     def workspacePathExcept =  new File(workspacePath).parent
@@ -66,7 +66,7 @@ pipeline {
                     bat "dir \"${buildFilesDir}\""
 
                    
-                      bat "iisreset /stop"
+                    //   bat "iisreset /stop"
                 } catch (Exception e) {
                     // Catch any exception and print error message
                     echo "Error in post-build actions: ${e.message}"
