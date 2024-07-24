@@ -46,6 +46,9 @@ pipeline {
             // Save build files to a directory and display paths
             script {
                 try {
+                    def websiteName = "gt-auth" // Replace with your actual IIS website name
+                    bat "cmd /c appcmd stop site /site.name:\"${websiteName}\""
+
                     def workspacePath = env.WORKSPACE
                     def workspacePathExcept =  new File(workspacePath).parent
                     def buildFilesDir = "${workspacePathExcept}\\build-files\\1"
@@ -61,6 +64,9 @@ pipeline {
                     echo "Build files saved in directory: ${buildFilesDir}"
                     echo "Files saved:"
                     bat "dir \"${buildFilesDir}\""
+
+                    def websiteName = "gt-auth" // Replace with your actual IIS website name
+                    bat "cmd /c appcmd start site /site.name:\"${websiteName}\""
                 } catch (Exception e) {
                     // Catch any exception and print error message
                     echo "Error in post-build actions: ${e.message}"
