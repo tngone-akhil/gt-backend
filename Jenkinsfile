@@ -52,8 +52,7 @@ pipeline {
                       if (!new File(buildFilesDir).exists()) {
                         bat "mkdir \"${buildFilesDir}\""
                     }
-                    //  bat "rmdir /S /Q ${buildFilesDir}"
-                    // bat "mkdir \"${buildFilesDir}\""
+
                     // // Move .dll files to build-files directory
                      bat "xcopy /Y /c \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
                     
