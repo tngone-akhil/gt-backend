@@ -5,6 +5,7 @@ pipeline {
         stage('Clone File') {
             steps {
                 script {
+                    // appcmd.exe stop site /site.name:"Default Web Site"
                     def gitUrl = 'https://github.com/tngone-akhil/gt-shared.git'
                     def workspacePath = env.WORKSPACE
                     def parentDir = new File(workspacePath).parent
@@ -15,7 +16,7 @@ pipeline {
                   
                     // Clone the repository and fetch only the specific file
 
-                    bat "git clone ${gitUrl} ${targetDir}"
+                    bat "git clone ${gitUrl} --branch shared --single-branch ${targetDir}"
                  
                 }
             }
