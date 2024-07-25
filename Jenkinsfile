@@ -10,10 +10,8 @@ pipeline {
                     def workspacePath = env.WORKSPACE
                     def parentDir = new File(workspacePath).parent
                    def targetDir = "${parentDir}\\external"
-                     if(${targetDir}){
                          bat "rmdir /S /Q ${targetDir}"
-                     }
-                    
+                     
                     bat "mkdir \"${targetDir}\""
                   
                     // Clone the repository and fetch only the specific file
