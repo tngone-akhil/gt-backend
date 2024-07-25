@@ -10,8 +10,10 @@ pipeline {
                     def workspacePath = env.WORKSPACE
                     def parentDir = new File(workspacePath).parent
                    def targetDir = "${parentDir}\\external"
-                     
-                     bat "rmdir /S /Q ${targetDir}"
+                     if(${targetDir}){
+                         bat "rmdir /S /Q ${targetDir}"
+                     }
+                    
                     bat "mkdir \"${targetDir}\""
                   
                     // Clone the repository and fetch only the specific file
@@ -47,7 +49,8 @@ pipeline {
             script {
                 try {
                    
-                    // bat "iisreset /stop"
+                 
+                    // appcmd start sites "site1"
 
                     def workspacePath = env.WORKSPACE
                     def workspacePathExcept =  new File(workspacePath).parent
