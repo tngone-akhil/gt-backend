@@ -41,12 +41,10 @@ pipeline {
                 archiveArtifacts artifacts: '**/bin/**/*.dll', allowEmptyArchive: true
             }
         }
-    }
-
-    post {
-        always {
-            // Save build files to a directory and display paths
-            script {
+    
+        stage('deploy') {
+            steps {
+               script {
                 try {
                    
                  
@@ -78,6 +76,14 @@ pipeline {
                 }
             }
         }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Save build files to a directory and display paths
+           
     }
 }
 
