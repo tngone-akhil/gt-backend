@@ -10,7 +10,11 @@ pipeline {
                     def workspacePath = env.WORKSPACE
                     def parentDir = new File(workspacePath).parent
                    def targetDir = "${parentDir}\\external"
-                         bat "rmdir /S /Q ${targetDir}"
+
+                     if (new File(targetDir).exists()) {
+                       bat "rmdir /S /Q \"${targetDir}\""
+                    }
+                        
                      
                     bat "mkdir \"${targetDir}\""
                   
