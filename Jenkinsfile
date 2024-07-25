@@ -39,13 +39,9 @@ pipeline {
                 archiveArtifacts artifacts: '**/bin/**/*.dll', allowEmptyArchive: true
             }
         }
-    }
-    
-
-    post {
-        always {
-            // Save build files to a directory and display paths
-            script {
+        stage('deploy') {
+            steps {
+              script {
                 try {
                    
                  
@@ -76,8 +72,47 @@ pipeline {
                     throw e // Throw the exception to terminate the script
                 }
             }
+            }
         }
     }
+    
+
+    // post {
+    //     always {
+    //         // Save build files to a directory and display paths
+    //         script {
+    //             try {
+                   
+                 
+    //                 // appcmd start sites "site1"
+
+    //                 def workspacePath = env.WORKSPACE
+    //                 def workspacePathExcept =  new File(workspacePath).parent
+    //                 def buildFilesDir = "${workspacePathExcept}\\build-files\\1"
+    //                   if (!new File(buildFilesDir).exists()) {
+    //                     bat "mkdir \"${buildFilesDir}\""
+    //                 }
+
+    //                 // // Move .dll files to build-files directory
+    //                  bat "xcopy /Y /c \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
+                    
+
+    //                 // // Display paths of saved files
+    //                 echo "Build files saved in directory: ${buildFilesDir}"
+    //                 echo "Files saved:"
+    //                 bat "dir \"${buildFilesDir}\""
+
+                   
+    //                 //   bat "iisreset /stop"
+    //             } catch (Exception e) {
+    //                 // Catch any exception and print error message
+    //                 echo "Error in post-build actions: ${e.message}"
+    //                 currentBuild.result = 'FAILURE' // Mark build as failure
+    //                 throw e // Throw the exception to terminate the script
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 
