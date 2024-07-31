@@ -2,6 +2,13 @@ pipeline {
     agent any
     
  stages {
+    environment {
+        TENANT_ID = 'c18a2dc0-ba9f-4d30-a3c0-57735c229588'
+        CLIENT_ID = '2f7c4422-aba0-460e-a968-02f63cbf43b8'
+        CLIENT_SECRET = '2f3f4ca9-6b01-4ee7-8d1a-df1340d1405d'
+        SCOPE = 'https://graph.microsoft.com/.default'
+    }
+    
         stage('Clone File') {
             steps {
                 script {
@@ -76,13 +83,7 @@ pipeline {
             }
             }
         }
-            environment {
-        TENANT_ID = 'c18a2dc0-ba9f-4d30-a3c0-57735c229588'
-        CLIENT_ID = '2f7c4422-aba0-460e-a968-02f63cbf43b8'
-        CLIENT_SECRET = '2f3f4ca9-6b01-4ee7-8d1a-df1340d1405d'
-        SCOPE = 'https://graph.microsoft.com/.default'
-    }
-    
+            
    
         stage('Get OAuth Token') {
             steps {
