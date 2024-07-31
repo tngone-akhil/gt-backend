@@ -109,8 +109,7 @@ pipeline {
         stage('deploy') {
             steps {
               script {
-                try {
-                   
+                try {   
                  
                     // appcmd start sites "site1"
 
