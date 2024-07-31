@@ -87,26 +87,29 @@ pipeline {
         }
         stage('Get OAuth Token') {
             steps {
-                script {
-                    def url = "https://login.microsoftonline.com/c18a2dc0-ba9f-4d30-a3c0-57735c229588/oauth2/v2.0/token"
-                    def payload = [
-                        grant_type: 'client_credentials',
-                        client_id: "2f7c4422-aba0-460e-a968-02f63cbf43b8",
-                        client_secret: "2f3f4ca9-6b01-4ee7-8d1a-df1340d1405d",
-                        scope: "https://graph.microsoft.com/.default"
-                    ]
-                    
-                    def response = httpRequest(
-                        acceptType: 'APPLICATION_JSON',
-                        contentType: 'APPLICATION_X_WWW_FORM_URLENCODED',
-                        httpMode: 'POST',
-                        url: url,
-                        requestBody: new groovy.json.JsonBuilder(payload).toPrettyString()
-                    )
-                    
-                    def jsonResponse = readJSON text: response.content
-                    env.ACCESS_TOKEN = jsonResponse.access_token
-                }
+                 script {
+                            def url = "https://login.microsoftonline.com/c18a2dc0-ba9f-4d30-a3c0-57735c229588/oauth2/v2.0/token"
+                            def payload = [
+                                grant_type: 'client_credentials',
+                                client_id: "2f7c4422-aba0-460e-a968-02f63cbf43b8",
+                                client_secret: "urQ8Q~qikCYJTJySsht66P20jcDoQEbCD7sOsdb9",
+                                scope: "https://graph.microsoft.com/.default"
+                            ]
+                            
+                            def response = httpRequest(
+                                acceptType: 'APPLICATION_JSON',
+                                contentType: 'APPLICATION_FORM',
+                                httpMode: 'POST',
+                                url: url,
+                                requestBody: payload.collect { k, v -> "${k}=${URLEncoder.encode(v, 'UTF-8')}" }.join('&')
+                            )
+
+                            def jsonResponse = readJSON text: response.content
+                            if (response.status != 200) {
+                                error "Failed to get OAuth token: ${response.content}"
+                            }
+                            env.ACCESS_TOKEN = jsonResponse.access_token
+                        }
             }
         }
         
