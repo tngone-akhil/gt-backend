@@ -1,7 +1,6 @@
 pipeline {
     agent any
     
- stages {
     environment {
         TENANT_ID = 'c18a2dc0-ba9f-4d30-a3c0-57735c229588'
         CLIENT_ID = '2f7c4422-aba0-460e-a968-02f63cbf43b8'
@@ -9,6 +8,9 @@ pipeline {
         SCOPE = 'https://graph.microsoft.com/.default'
     }
     
+    stages {
+        
+
         stage('Clone File') {
             steps {
                 script {
@@ -83,8 +85,6 @@ pipeline {
             }
             }
         }
-            
-   
         stage('Get OAuth Token') {
             steps {
                 script {
