@@ -1,70 +1,6 @@
 pipeline {
     agent any
     
-    environment {
-        TENANT_ID = 'c18a2dc0-ba9f-4d30-a3c0-57735c229588'
-        CLIENT_ID = '2f7c4422-aba0-460e-a968-02f63cbf43b8'
-        CLIENT_SECRET = '2f3f4ca9-6b01-4ee7-8d1a-df1340d1405d'
-        SCOPE = 'https://graph.microsoft.com/.default'
-    }
-    
-    stages {
-        stage('Get OAuth Token') {
-            steps {
-                script {
-                    def url = "https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token"
-                    def payload = [
-                        grant_type: 'client_credentials',
-                        client_id: CLIENT_ID,
-                        client_secret: CLIENT_SECRET,
-                        scope: SCOPE
-                    ]
-                    
-                    def response = httpRequest(
-                        acceptType: 'APPLICATION_JSON',
-                        contentType: 'APPLICATION_X_WWW_FORM_URLENCODED',
-                        httpMode: 'POST',
-                        url: url,
-                        requestBody: new groovy.json.JsonBuilder(payload).toPrettyString()
-                    )
-                    
-                    def jsonResponse = readJSON text: response.content
-                    env.ACCESS_TOKEN = jsonResponse.access_token
-                }
-            }
-        }
-        
-        stage('Use Microsoft Graph API') {
-            steps {
-                script {
-                    def apiUrl = 'https://graph.microsoft.com/v1.0/me/sendMail'
-                    
-                    def emailPayload = [
-                        message: [
-                            subject: 'Test Email from Jenkins',
-                            body: [
-                                contentType: 'Text',
-                                content: 'This is a test email sent from Jenkins using Microsoft Graph API.'
-                            ],
-                            toRecipients: [
-                                [
-                                    emailAddress: [address: 'neeraja.cr@orderstack.io']
-                                ]
-                            ]
-                        ]
-                    ]
-                    
-                    httpRequest(
-                        acceptType: 'APPLICATION_JSON',
-                        contentType: 'APPLICATION_JSON',
-                        httpMode: 'POST',
-                        url: apiUrl,
-                        requestBody: new groovy.json.JsonBuilder(emailPayload).toPrettyString(),
-                        customHeaders: [[name: 'Authorization', value: "Bearer ${env.ACCESS_TOKEN}"]]
-                    )
-                }
-            }
-        }
 
         stage('Clone File') {
             steps {
@@ -138,6 +74,70 @@ pipeline {
                     throw e // Throw the exception to terminate the script
                 }
             }
+            }
+        }
+            environment {
+        TENANT_ID = 'c18a2dc0-ba9f-4d30-a3c0-57735c229588'
+        CLIENT_ID = '2f7c4422-aba0-460e-a968-02f63cbf43b8'
+        CLIENT_SECRET = '2f3f4ca9-6b01-4ee7-8d1a-df1340d1405d'
+        SCOPE = 'https://graph.microsoft.com/.default'
+    }
+    
+    stages {
+        stage('Get OAuth Token') {
+            steps {
+                script {
+                    def url = "https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token"
+                    def payload = [
+                        grant_type: 'client_credentials',
+                        client_id: CLIENT_ID,
+                        client_secret: CLIENT_SECRET,
+                        scope: SCOPE
+                    ]
+                    
+                    def response = httpRequest(
+                        acceptType: 'APPLICATION_JSON',
+                        contentType: 'APPLICATION_X_WWW_FORM_URLENCODED',
+                        httpMode: 'POST',
+                        url: url,
+                        requestBody: new groovy.json.JsonBuilder(payload).toPrettyString()
+                    )
+                    
+                    def jsonResponse = readJSON text: response.content
+                    env.ACCESS_TOKEN = jsonResponse.access_token
+                }
+            }
+        }
+        
+        stage('Use Microsoft Graph API') {
+            steps {
+                script {
+                    def apiUrl = 'https://graph.microsoft.com/v1.0/me/sendMail'
+                    
+                    def emailPayload = [
+                        message: [
+                            subject: 'Test Email from Jenkins',
+                            body: [
+                                contentType: 'Text',
+                                content: 'This is a test email sent from Jenkins using Microsoft Graph API.'
+                            ],
+                            toRecipients: [
+                                [
+                                    emailAddress: [address: 'neeraja.cr@orderstack.io']
+                                ]
+                            ]
+                        ]
+                    ]
+                    
+                    httpRequest(
+                        acceptType: 'APPLICATION_JSON',
+                        contentType: 'APPLICATION_JSON',
+                        httpMode: 'POST',
+                        url: apiUrl,
+                        requestBody: new groovy.json.JsonBuilder(emailPayload).toPrettyString(),
+                        customHeaders: [[name: 'Authorization', value: "Bearer ${env.ACCESS_TOKEN}"]]
+                    )
+                }
             }
         }
     }
