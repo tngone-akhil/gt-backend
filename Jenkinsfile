@@ -12,7 +12,7 @@ pipeline {
         stage('Get OAuth Token') {
             steps {
                 script {
-                    def url = "https://login.microsoftonline.com/${c18a2dc0-ba9f-4d30-a3c0-57735c229588}/oauth2/v2.0/token"
+                    def url = "https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token"
                     def payload = [
                         grant_type: 'client_credentials',
                         client_id: CLIENT_ID,
