@@ -1,7 +1,7 @@
 pipeline {
     agent any
     
-
+ stages {
         stage('Clone File') {
             steps {
                 script {
@@ -83,7 +83,7 @@ pipeline {
         SCOPE = 'https://graph.microsoft.com/.default'
     }
     
-    stages {
+   
         stage('Get OAuth Token') {
             steps {
                 script {
