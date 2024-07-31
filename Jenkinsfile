@@ -65,9 +65,7 @@ pipeline {
                 }
             }
         }
-    }
 
-    stages {
         stage('Clone File') {
             steps {
                 script {
