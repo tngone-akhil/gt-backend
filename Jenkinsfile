@@ -67,9 +67,9 @@ pipeline {
 
                     // // Move .dll files to build-files directory
                    
-                     bat """
-                     ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "del C:\\Users\\Administrator\\backup\\*.*"
-                    """
+                    //  bat """
+                    //  ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "del C:\\Users\\Administrator\\backup\\*.*"
+                    // """
                      bat """
                     ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "move C:\\Users\\Administrator\\jenkins\\* C:\\Users\\Administrator\\jenkins"
                     """
