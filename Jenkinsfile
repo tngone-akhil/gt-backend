@@ -66,7 +66,8 @@ pipeline {
                     }
 
                     // // Move .dll files to build-files directory
-                     bat "xcopy /Y /c \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" \"${buildFilesDir}\"/E"
+         
+                     bat "scp -o StrictHostKeyChecking=no \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Users\\Administrator\\jenkins"
                     
 
                     // // Display paths of saved files
