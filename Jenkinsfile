@@ -71,7 +71,7 @@ pipeline {
                 ssh Administrator@ws5.orderstack.io "powershell -Command \"Compress-Archive -Path 'C:\\Users\\Administrator\\sample\\jenkins' -DestinationPath 'C:\\Users\\Administrator\\sample\\jenkins_${buildNumber}.zip'\""
                     """
                      bat """
-                    ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "move \"C:\\Users\\Administrator\\sample\\jenkins.zip\" \"C:\\Users\\Administrator\\sample\\backup\\\""
+                    ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "move \"C:\\Users\\Administrator\\sample\\jenkins_${buildNumber}.zip\" \"C:\\Users\\Administrator\\sample\\backup\\\""
                     """
                      bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Users\\Administrator\\sample\\jenkins"
                     
