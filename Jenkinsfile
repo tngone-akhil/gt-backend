@@ -67,14 +67,19 @@ pipeline {
 
                     // // Move .dll files to build-files directory
                     def buildNumber = env.BUILD_NUMBER
-                     bat """
-                ssh Administrator@ws5.orderstack.io "powershell -Command \"Compress-Archive -Path 'C:\\Users\\Administrator\\sample\\jenkins' -DestinationPath 'C:\\Users\\Administrator\\sample\\jenkins_${buildNumber}.zip'\""
+                    bat """
+                    ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io” "powershell Stop-WebSite -Name 'gtlandmark.orderstack.io'
                     """
                      bat """
-                    ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "move \"C:\\Users\\Administrator\\sample\\jenkins_${buildNumber}.zip\" \"C:\\Users\\Administrator\\sample\\backup\\\""
+                    ssh Administrator@ws5.orderstack.io "powershell -Command \"Compress-Archive -Path 'C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins' -DestinationPath 'C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins_${buildNumber}.zip'\""
                     """
-                     bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Users\\Administrator\\sample\\jenkins"
-                    
+                     bat """ 
+                    ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "move \"C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins_${buildNumber}.zip\" \"C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\backup\\\""
+                    """
+                     bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins"
+                    bat """
+                    ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io” "powershell Start-WebSite -Name 'gtlandmark.orderstack.io'
+                    """
 
                     // // Display paths of saved files
                     echo "Build files saved in directory: ${buildFilesDir}"
