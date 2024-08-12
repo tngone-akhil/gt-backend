@@ -66,12 +66,12 @@ pipeline {
                     }
 
                     // // Move .dll files to build-files directory
-                   
-                    //  bat """
-                    //  ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "del C:\\Users\\Administrator\\backup\\*.*"
-                    // """
+                    def buildNumber = env.BUILD_NUMBER
                      bat """
-                    ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "move \"C:\\Users\\Administrator\\sample\\jenkins\\*\" \"C:\\Users\\Administrator\\sample\\backup\\\""
+                    ssh Administrator@ws5.orderstack.io "powershell -Command {Compress-Archive C:\\Users\\Administrator\\sample\\jenkins C:\\Users\\Administrator\\sample\\jenkins_${buildNumber}.zip
+                    """
+                     bat """
+                    ssh -o StrictHostKeyChecking=no  Administrator@ws5.orderstack.io "move \"C:\\Users\\Administrator\\sample\\jenkins.zip\" \"C:\\Users\\Administrator\\sample\\backup\\\""
                     """
                      bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Users\\Administrator\\sample\\jenkins"
                     
