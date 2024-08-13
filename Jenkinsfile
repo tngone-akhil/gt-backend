@@ -71,13 +71,14 @@ pipeline {
                     ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io "powershell Stop-WebSite -Name 'gtlandmark.demo.orderstack.io'
                     """
                      bat """
-                    ssh Administrator@ws5.orderstack.io "powershell -Command \"Compress-Archive -Path 'C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins' -DestinationPath 'C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins_${buildNumber}.zip'\""
+                    ssh Administrator@ws5.orderstack.io "powershell -Command \"Compress-Archive -Path 'C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins1' -DestinationPath 'C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins_${buildNumber}.zip'\""
                     """
                      bat """ 
                      ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io "move \"C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins_${buildNumber}.zip\" \"C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\backup\\\""
 
                     """
                      bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins"
+                      bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins1"
                     bat """
                     ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io "powershell Start-WebSite -Name 'gtlandmark.demo.orderstack.io'
                     """
