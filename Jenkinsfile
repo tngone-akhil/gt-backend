@@ -78,7 +78,7 @@ pipeline {
                     """
                      bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins"
                     bat """
-                    ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io "powershell Start-WebSite -Name 'gtlandmark.orderstack.io'
+                    ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io "powershell Start-WebSite -Name 'gtlandmark.demo.orderstack.io'
                     """
 
                     // // Display paths of saved files
