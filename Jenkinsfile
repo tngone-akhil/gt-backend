@@ -1,13 +1,6 @@
 pipeline {
     agent any
     
-    environment {
-        TENANT_ID = 'c18a2dc0-ba9f-4d30-a3c0-57735c229588'
-        CLIENT_ID = '2f7c4422-aba0-460e-a968-02f63cbf43b8'
-        CLIENT_SECRET = '2f3f4ca9-6b01-4ee7-8d1a-df1340d1405d'
-        SCOPE = 'https://graph.microsoft.com/.default'
-    }
-    
     stages {
         
 
@@ -56,38 +49,9 @@ pipeline {
               script {
                 try {   
                 
-                    // appcmd start sites "site1"
-
-                    def workspacePath = env.WORKSPACE
-                    def workspacePathExcept =  new File(workspacePath).parent
-                    def buildFilesDir = "${workspacePathExcept}\\build-files\\1"
-                      if (!new File(buildFilesDir).exists()) {
-                        bat "mkdir \"${buildFilesDir}\""
-                    }
-
-                    // // Move .dll files to build-files directory
-                    def buildNumber = env.BUILD_NUMBER
-                    bat """
-                    ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io "powershell Stop-WebSite -Name 'gtlandmark.demo.orderstack.io'
-                    """
-                     bat """
-                    ssh Administrator@ws5.orderstack.io "powershell -Command \"Compress-Archive -Path 'C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins1' -DestinationPath 'C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins_${buildNumber}.zip'\""
-                    """
-                    bat """
-                        ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io "move \\"C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins_${buildNumber}.zip\\" \\"C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\backup\\""
-                    """
-                     bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Users\\Administrator\\sample\\jenkins"
-                      // bat "scp -o StrictHostKeyChecking=no -r \"${workspacePath}\\bin\\Release\\net8.0\\publish\\*\" Administrator@ws5.orderstack.io:C:\\Hosted Applications\\gtlandmark.orderstack.io\\gtlandmark-business-dev\\jenkins1"
-                    bat """
-                    ssh -o StrictHostKeyChecking=no Administrator@ws5.orderstack.io "powershell Start-WebSite -Name 'gtlandmark.demo.orderstack.io'
-                    """
-
                     // // Display paths of saved files
-                    echo "Build files saved in directory: ${buildFilesDir}"
-                    echo "Files saved:"
-                    bat "dir \"${buildFilesDir}\""
+                    echo "Build files saved in directory"
 
-                   
                     //   bat "iisreset /stop"
                 } catch (Exception e) {
                     // Catch any exception and print error message
