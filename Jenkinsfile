@@ -52,6 +52,7 @@ pipeline {
             steps {
                 script {
                     def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+                    echo "${sha}"
                     def repoOwner = 'tngone-akhil'
                     def repoName = 'gt-backend'
                     def checkRunId = sh(script: "curl -s -X POST -H \"Authorization: token ${env.GITHUB_TOKEN}\" -H \"Accept: application/vnd.github.v3+json\" -d '{\"name\": \"Jenkins Build\",\"head_sha\": \"${sha}\",\"status\": \"in_progress\",\"started_at\": \"$(date --utc +%Y-%m-%dT%H:%M:%SZ)\",\"external_id\": \"${env.BUILD_NUMBER}\"}' https://api.github.com/repos/${repoOwner}/${repoName}/check-runs | jq -r '.id'", returnStdout: true).trim()
