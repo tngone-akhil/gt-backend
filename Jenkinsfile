@@ -53,7 +53,7 @@ pipeline {
             steps {
                 script {
                     def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
-                    def statusUrl = "https://api.github.com/repos/tngone-akhil/pipeline-branches/statuses/${sha}"
+                    def statusUrl = "https://api.github.com/repos/tngone-akhil/gt-backend/statuses/${sha}"
                     def jsonBody = new groovy.json.JsonBuilder([
                         state: 'success',
                         target_url: "${env.JENKINS_URL}/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/",
@@ -79,7 +79,7 @@ pipeline {
             steps {
                 script {
                     def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
-                    def statusUrl = "https://api.github.com/repos/tngone-akhil/pipeline-branches/statuses/${sha}"
+                    def statusUrl = "https://api.github.com/repos/tngone-akhil/gt-backend/statuses/${sha}"
                     def jsonBody = new groovy.json.JsonBuilder([
                         state: 'failure',
                         target_url: "${env.JENKINS_URL}/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/",
