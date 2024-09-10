@@ -46,54 +46,18 @@ pipeline {
                 archiveArtifacts artifacts: '**/bin/**/*.dll', allowEmptyArchive: true
             }
         }
-        stage('Notify GitHub') {
-            when {
-                expression { currentBuild.result == 'SUCCESS' }
-            }
-            steps {
-                script {
-                    def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
-                    def statusUrl = "https://api.github.com/repos/tngone-akhil/gt-backend/statuses/${sha}"
-                    def jsonBody = new groovy.json.JsonBuilder([
-                        state: 'success',
-                        target_url: "${env.JENKINS_URL}/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/",
-                        description: "Build ${env.BUILD_NUMBER} succeeded",
-                        context: "continuous-integration/jenkins"
-                    ]).toPrettyString()
-
-                    def connection = new URL(statusUrl).openConnection()
-                    connection.setRequestMethod("POST")
-                    connection.setRequestProperty("Authorization", "token ${env.GITHUB_TOKEN}")
-                    connection.setRequestProperty("Accept", "application/vnd.github.v3+json")
-                    connection.doOutput = true
-                    connection.outputStream.withWriter { it.write(jsonBody) }
-                    connection.inputStream.text
-                }
-            }
-        }
+       
          
-        stage('Fail GitHub') {
-            when {
-                expression { currentBuild.result == 'FAILURE' }
-            }
+      stage('Notify GitHub Checks API') {
             steps {
                 script {
                     def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
-                    def statusUrl = "https://api.github.com/repos/tngone-akhil/gt-backend/statuses/${sha}"
-                    def jsonBody = new groovy.json.JsonBuilder([
-                        state: 'failure',
-                        target_url: "${env.JENKINS_URL}/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/",
-                        description: "Build ${env.BUILD_NUMBER} failed",
-                        context: "continuous-integration/jenkins"
-                    ]).toPrettyString()
+                    def repoOwner = 'tngone-akhil'
+                    def repoName = 'gt-backend'
+                    def checkRunId = sh(script: "curl -s -X POST -H \"Authorization: token ${env.GITHUB_TOKEN}\" -H \"Accept: application/vnd.github.v3+json\" -d '{\"name\": \"Jenkins Build\",\"head_sha\": \"${sha}\",\"status\": \"in_progress\",\"started_at\": \"$(date --utc +%Y-%m-%dT%H:%M:%SZ)\",\"external_id\": \"${env.BUILD_NUMBER}\"}' https://api.github.com/repos/${repoOwner}/${repoName}/check-runs | jq -r '.id'", returnStdout: true).trim()
 
-                    def connection = new URL(statusUrl).openConnection()
-                    connection.setRequestMethod("POST")
-                    connection.setRequestProperty("Authorization", "token ${env.GITHUB_TOKEN}")
-                    connection.setRequestProperty("Accept", "application/vnd.github.v3+json")
-                    connection.doOutput = true
-                    connection.outputStream.withWriter { it.write(jsonBody) }
-                    connection.inputStream.text
+                    def status = currentBuild.result == 'SUCCESS' ? 'success' : 'failure'
+                    sh "curl -s -X PATCH -H \"Authorization: token ${env.GITHUB_TOKEN}\" -H \"Accept: application/vnd.github.v3+json\" -d '{\"status\": \"${status}\",\"completed_at\": \"$(date --utc +%Y-%m-%dT%H:%M:%SZ)\",\"conclusion\": \"${status}\",\"output\": {\"title\": \"Jenkins Build\",\"summary\": \"Build ${env.BUILD_NUMBER} ${status}\"}}' https://api.github.com/repos/${repoOwner}/${repoName}/check-runs/${checkRunId}"
                 }
             }
         }
