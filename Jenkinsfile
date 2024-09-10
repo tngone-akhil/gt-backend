@@ -48,16 +48,15 @@ pipeline {
         }
        
          
-   stage('Notify GitHub Checks API') {
+  stage('Create Check Run') {
             steps {
                 script {
-                    def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
-                    echo "${sha}"
                     def repoOwner = 'tngone-akhil'
                     def repoName = 'gt-backend'
+                    def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
                     def startedAt = sh(script: "date --utc +%Y-%m-%dT%H:%M:%SZ", returnStdout: true).trim()
                     
-                    def createCheckRunResponse = sh(script: """
+                    def response = sh(script: """
                         curl -s -X POST -H "Authorization: token ${env.GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3+json" -d '{
                             "name": "Jenkins Build",
                             "head_sha": "${sha}",
@@ -67,15 +66,23 @@ pipeline {
                         }' https://api.github.com/repos/${repoOwner}/${repoName}/check-runs
                     """, returnStdout: true).trim()
 
-                    // Extract Check Run ID from the response
-                    def checkRunId = sh(script: "echo '${createCheckRunResponse}' | jq -r '.id'", returnStdout: true).trim()
+                    def checkRunId = sh(script: "echo '${response}' | jq -r '.id'", returnStdout: true).trim()
                     
                     echo "Check Run ID: ${checkRunId}"
+                }
+            }
+        }
 
-                    def status = currentBuild.result == 'SUCCESS' ? 'success' : 'failure'
-                     sh """
+        stage('Update Check Run') {
+            steps {
+                script {
+                    def checkRunId = 'your_check_run_id' // Replace with actual Check Run ID from previous stage
+                    def status = 'success' // or 'failure'
+                    def completedAt = sh(script: "date --utc +%Y-%m-%dT%H:%M:%SZ", returnStdout: true).trim()
+
+                    sh """
                         curl -s -X PATCH -H "Authorization: token ${env.GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3+json" -d '{
-                            "status": "${status}",
+                            "status": "completed",
                             "completed_at": "${completedAt}",
                             "conclusion": "${status}",
                             "output": {
