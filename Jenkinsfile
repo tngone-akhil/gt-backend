@@ -73,7 +73,17 @@ pipeline {
                     echo "Check Run ID: ${checkRunId}"
 
                     def status = currentBuild.result == 'SUCCESS' ? 'success' : 'failure'
-                    sh """curl -s -X PATCH -H \"Authorization: token ${env.GITHUB_TOKEN}\" -H \"Accept: application/vnd.github.v3+json\" -d '{\"status\": \"${status}\",\"completed_at\": \"$(date --utc +%Y-%m-%dT%H:%M:%SZ)\",\"conclusion\": \"${status}\",\"output\": {\"title\": \"Jenkins Build\",\"summary\": \"Build ${env.BUILD_NUMBER} ${status}\"}}' https://api.github.com/repos/${repoOwner}/${repoName}/check-runs/${checkRunId}"""
+                     sh """
+                        curl -s -X PATCH -H "Authorization: token ${env.GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3+json" -d '{
+                            "status": "${status}",
+                            "completed_at": "${completedAt}",
+                            "conclusion": "${status}",
+                            "output": {
+                                "title": "Jenkins Build",
+                                "summary": "Build ${env.BUILD_NUMBER} ${status}"
+                            }
+                        }' https://api.github.com/repos/${repoOwner}/${repoName}/check-runs/${checkRunId}
+                    """
                 }
             }
         }
