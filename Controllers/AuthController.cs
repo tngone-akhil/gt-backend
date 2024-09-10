@@ -53,7 +53,7 @@ public class AuthController : ControllerBase
   public ActionResult<UserValidationResult> AuthenticateUser(UserValidateRequest userToValidate)
   {
     var result = new UserValidationResult();
-
+    console.writeLine("hello");
     var ex = new Exception();
     try
     {
