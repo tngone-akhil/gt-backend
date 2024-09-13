@@ -45,9 +45,7 @@ pipeline {
             }
         }
          stage('Notify GitHub - Success') {
-            when {
-                success()
-            }
+        
             steps {
                 script {
                     def commitSha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
