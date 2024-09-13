@@ -44,6 +44,30 @@ pipeline {
                 archiveArtifacts artifacts: '**/bin/**/*.dll', allowEmptyArchive: true
             }
         }
+         stage('Notify GitHub - Success') {
+            when {
+                success()
+            }
+            steps {
+                script {
+                    def commitSha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+                    def githubApiUrl = "https://api.github.com/repos/your-org/your-repo/statuses/${commitSha}"
+                    def payload = """
+                    {
+                        "state": "success",
+                        "description": "Jenkins build and tests passed",
+                        "context": "continuous-integration/jenkins"
+                    }
+                    """
+                    sh """
+                    curl -H "Authorization: token ${GITHUB_TOKEN}" \
+                         -H "Content-Type: application/json" \
+                         -d '${payload}' \
+                         ${githubApiUrl}
+                    """
+                }
+            }
+        }
         stage('deploy') {
             steps {
               script {
