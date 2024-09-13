@@ -32,7 +32,7 @@ public class Program
              app.UseSwagger();
              app.UseSwaggerUI();
         // }
-
+        console.writeLine("hello");
         app.UseHttpsRedirection();
         app.MapControllers();
         app.Run();
