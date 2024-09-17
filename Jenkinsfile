@@ -21,12 +21,5 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            githubNotify state: 'SUCCESS', context: 'continuous-integration/jenkins', description: 'Build successful'
-        }
-        failure {
-            githubNotify state: 'FAILURE', context: 'continuous-integration/jenkins', description: 'Build failed'
-        }
-    }
+  
 }
